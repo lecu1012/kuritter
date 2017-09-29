@@ -1,0 +1,10 @@
+
+<article class="content">
+    <%= form_with(model: @twitter,scope: :twitter,method: :patch, local: true , url: twitter_path, html: { class: 'input-form'}) do |form| %>
+    <div class="twitter_text">
+    <%= form.text_area :content ,class: 'form_textarea' %>
+
+    </div>
+    <%= form.submit %>
+    <% end %>
+</article>

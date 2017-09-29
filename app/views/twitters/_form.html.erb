@@ -1,0 +1,17 @@
+<%= form_with(model: @twitter, local: true) do |form| %>
+
+<% if @twitter.errors.any? %>
+<div id="error_explanation">
+  <% @twitter.errors.full_messages.each do |msg| %>
+  <%= msg %>
+  <% end %>
+</div>
+<% end %>
+
+<div class="twitter_text">
+  <%= form.text_area :content ,class: 'form_textarea' %>
+
+</div>
+<%= form.submit %>
+
+<% end %>

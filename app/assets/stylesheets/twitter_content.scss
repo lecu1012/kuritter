@@ -1,0 +1,59 @@
+.content{
+  width: 100%;
+  margin-top: 10px;
+  float: left;
+  font-size: 1rem;
+}
+
+.content_table{
+  width: 100%;
+  table-layout: fixed;
+}
+
+.content_table:hover{
+  background-color: #C0C0C0;
+}
+
+.content_table th{
+  width: 20%;
+}
+
+.content_table td{
+  width: auto;
+  padding: 0 10px;
+  border: 1px solid #DDD;
+  vertical-align: middle;
+  word-wrap: break-word;
+}
+
+.content_table ul{
+  width: 100%;
+  display: table;
+  table-layout: fixed;
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+.content_table li{
+  text-decoration: none;
+  height: 30px;
+  width: 10%;
+  display: table-cell;
+  display: block;
+  float: left;
+}
+
+.content_top {
+  height: 30px;
+  border-style:none!important;
+}
+
+.acount_name {
+  font-size: 1rem;
+  font-weight: bold;
+  height: 30px;
+  width: 70%!important;
+  color: #0099FF;
+  border-style:none!important;
+}

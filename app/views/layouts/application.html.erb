@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BootstrapSeries2</title>
+  <%= csrf_meta_tags %>
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+  <header class="header clearfix">
+    <nav class="row">
+      <div class="col-5 row">
+        <button type="button" onClick="location.href='/twitters'" class="col-3 btn btn-outline-primary">
+          <%= image_tag 'IMG_0077.PNG', :size => '20x20', :class => "topmenu_img"%><a class="topmenu_text hidden-xs hidden-sm">ホーム</a>
+        </button>
+        <button type="button" class="col-3 btn btn-outline-primary">
+          <%= image_tag 'IMG_0078.PNG', :size => '20x20', :class => "topmenu_img"%><a class="topmenu_text hidden-xs hidden-sm">通知</a>
+        </button>
+        <button type="button" class="col-3 btn btn-outline-primary">
+          <%= image_tag 'IMG_0079.PNG', :size => '18x18', :class => "topmenu_img"%><a class="topmenu_text hidden-xs hidden-sm">モーメント</a>
+        </button>
+        <button type="button" class="col-3 btn btn-outline-primary">
+          <%= image_tag 'IMG_0080.PNG', :size => '18x18', :class => "topmenu_img"%><a class="topmenu_text hidden-xs hidden-sm">メッセージ</a>
+        </button>
+      </div>
+
+      <div class="col-2">
+        <a href="index.html">
+          <%= image_tag 'kuritter_icon.jpg', :size => '60x45', :class => "header_img"%>
+        </a>
+      </div>
+
+      <div class="col-5 row">
+        <button type="button" class="col-4 btn btn-outline-primary hidden-xs hidden-sm">キーワード検索</button>
+        <button type="button" class="col-4 btn btn-outline-primary hidden-xs hidden-sm">アカウント</button>
+        <button type="button" onClick="location.href='/twitters/new'" class="col-4 btn btn-outline-primary hidden-xs hidden-sm">ツイート</button>
+        <button type="button" onClick="location.href='/twitters/new'" class="col-12 btn btn-outline-primary visible-xs visible-sm">ツイート</button>
+      </div>
+    </nav>
+  </header>
+  <div class="wrapper row clearfix">
+    <aside class="col-3 side_menu_left hidden-xs hidden-sm">
+      <nav>
+        <div class="side_menu_left_acount">
+          <%= image_tag 'acount/plofile.jpg',:class => "profile_image" %>
+          <h3>くりりん＠アウトプット</h3>
+        </div>
+        <ul>
+          <li><h3>おすすめトレンド</h3></li>
+        </ul>
+      </nav>
+    </aside>
+    <article class="content col-lg-6">
+      <%= yield %>
+    </article>
+    <aside class="col-3 side_menu_right hidden-xs hidden-sm">
+      <nav>
+        <ul>
+          <li><h3>おすすめユーザー</h3></li>
+        </ul>
+      </nav>
+    </aside>
+  </div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>RailsKadai</title>
+  <%= csrf_meta_tags %>
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+  <header class="header clearfix">
+    <nav class="row">
+      <div class="col-5 row">
+        <button type="button" onClick="location.href='/twitters'" class="col-3 btn btn-outline-primary">ホーム</button>
+        <button type="button" class="col-3 btn btn-outline-primary">通知</button>
+        <button type="button" class="col-3 btn btn-outline-primary">モーメント</button>
+        <button type="button" class="col-3 btn btn-outline-primary">メッセージ</button>
+      </div>
+
+      <div class="col-2">
+        <a href="index.html">
+          <%= image_tag 'kuritter_icon.jpg', :size => '60x45', :class => "header_img"%>
+        </a>
+      </div>
+
+      <div class="col-5 row">
+        <button type="button" class="col-4 btn btn-outline-primary">キーワード検索</button>
+        <button type="button" class="col-4 btn btn-outline-primary">アカウント</button>
+        <button type="button" onClick="location.href='/twitters/new'" class="col-4 btn btn-outline-primary">ツイート</button>
+      </div>
+    </nav>
+  </header>  <%= yield %>
+</body>
+</html>

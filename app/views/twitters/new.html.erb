@@ -1,0 +1,20 @@
+<%= render 'form' %>
+
+<% Twitter.all.reverse_each do |kuritter| %>
+<table class="content_table">
+  <tr>
+    <th rowspan="2"><%= image_tag 'acount/profile_logo.png', :size => '100x100' %></th>
+    <td class="content_top">
+      <ul>
+        <li class="acount_name">くりりん＠アウトプット</li>
+        <li><%= link_to '詳細', twitter_path(kuritter.id) %></li>
+        <li><%= link_to "編集", edit_twitter_path(kuritter.id) %></li>
+        <li><%= link_to '削除', twitter_path(kuritter.id), method: :delete %></li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td><%= kuritter.content %></td>
+  </tr>
+</table>
+<% end %>
