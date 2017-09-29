@@ -1,0 +1,23 @@
+// Place all the styles related to the twitters controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+// Place all the styles related to the twitter_dbs controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+li{
+  list-style: none;
+}
+
+.clearfix:after{
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.form_textarea{
+  height: 50px;
+  width: 100%;
+}

@@ -1,0 +1,55 @@
+.side_menu_left{
+  width: 300px;
+  float: left;
+}
+
+.side_menu_right{
+  width: 300px;
+  float: right;
+}
+
+.side_menu_left_acount{
+  border: double;
+  border-color: #5ACFF9;
+  height: 30rem;
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.profile_image{
+  margin-top: 10px;
+  margin-left: 10px;
+  width: 90%;
+  height: auto;
+}
+
+.side_menu_left ul{
+  list-style: none;
+  margin: 0px;
+  margin-top: 10px;
+  padding: 0px;
+}
+
+.side_menu_left li{
+  border: double;
+  border-color: #5ACFF9;
+  height: 20rem;
+  margin-bottom: 10px;
+  padding: 0;
+}
+
+.side_menu_right ul{
+  list-style: none;
+  margin: 0px;
+  margin-top: 10px;
+  padding: 0px;
+}
+
+.side_menu_right li{
+  border: double;
+  border-color: #5ACFF9;
+  height: 20rem;
+  margin-bottom: 10px;
+  padding: 0;
+}
