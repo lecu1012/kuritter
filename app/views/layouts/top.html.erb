@@ -19,7 +19,7 @@
       </div>
 
       <div class="col-2">
-        <a href="index.html">
+        <a href="/twitters/index">
           <%= image_tag 'kuritter_icon.jpg', :size => '60x45', :class => "header_img"%>
         </a>
       </div>
@@ -30,6 +30,18 @@
         <button type="button" onClick="location.href='/twitters/new'" class="col-4 btn btn-outline-primary">ツイート</button>
       </div>
     </nav>
+
+    <% flash.each do |key, value| %>
+      <%= content_tag(:div, value, class: "#{key}") %>
+    <% end %>
+
+    <% if logged_in? %>
+      <%= link_to "Profile", user_path(current_user.id) %>
+      <%= link_to "Logout", session_path, method: :delete %>
+    <% else %>
+      <%= link_to "Sign up", new_user_path ,:controller => 'users' %>
+      <%= link_to "Login", new_session_path %>
+    <% end %>
   </header>  <%= yield %>
 </body>
 </html>
