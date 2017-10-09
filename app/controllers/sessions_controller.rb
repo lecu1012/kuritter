@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    #Userテーブルからemailが一致するレコードを取得
+    #Userテーブルからemailを取得
     user = User.find_by(email: params[:session][:email].downcase)
 
     if user && user.authenticate(params[:session][:password])
