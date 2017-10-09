@@ -2,7 +2,6 @@ class UsersController < ApplicationController
   def new
     @user = User.new
     render layout: 'top'
-
   end
 
   def show
@@ -11,10 +10,9 @@ class UsersController < ApplicationController
   end
 
   def create
-    binding.pry
     @user = User.new(user_params)
     if @user.save
-      redirect_to user_path(@user.id)
+      redirect_to twitters_index_path
     else
       render 'new'
     end

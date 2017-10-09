@@ -43,6 +43,10 @@ class TwittersController < ApplicationController
     params.require(:twitter).permit(:content)
   end
 
+  def user_params
+    params.require(:user).permit(:user_id)
+  end
+
   def set_twitter
     @twitter = Twitter.find(params[:id])
   end

@@ -10,12 +10,13 @@
 
 <body>
   <header class="header clearfix">
+    <% if logged_in? %>
     <nav class="row">
       <div class="col-5 row">
-        <button type="button" onClick="location.href='/twitters'" class="col-3 btn btn-outline-primary">ホーム</button>
-        <button type="button" class="col-3 btn btn-outline-primary">通知</button>
-        <button type="button" class="col-3 btn btn-outline-primary">モーメント</button>
-        <button type="button" class="col-3 btn btn-outline-primary">メッセージ</button>
+        <div class="col-3"><%= button_to "ホーム", twitters_path ,method: :get,:class => "btn btn-outline-primary" %></div>
+        <div class="col-3"><%= button_to "通知",   twitters_path ,method: :get,:class => "btn btn-outline-primary" %></div>
+        <div class="col-3"><%= button_to "モーメント", twitters_path ,method: :get,:class => "btn btn-outline-primary" %></div>
+        <div class="col-3"><%= button_to "メッセージ", twitters_path ,method: :get,:class => "btn btn-outline-primary" %></div>
       </div>
 
       <div class="col-2">
@@ -25,23 +26,30 @@
       </div>
 
       <div class="col-5 row">
-        <button type="button" class="col-4 btn btn-outline-primary">キーワード検索</button>
-        <button type="button" class="col-4 btn btn-outline-primary">アカウント</button>
-        <button type="button" onClick="location.href='/twitters/new'" class="col-4 btn btn-outline-primary">ツイート</button>
+        <div class="col-4"><%= button_to "ツイート", new_twitter_path, method: :get, :class => "btn btn-outline-primary"%></div>
+        <div class="col-4"><%= button_to "アカウント",twitters_path,method: :get,:class => "btn btn-outline-primary" %></div>
+        <div class="col-4"><%= button_to "ログアウト",session_path(current_user.id), :class => "btn btn-outline-primary", method: :delete%></div>
       </div>
     </nav>
-
-    <% flash.each do |key, value| %>
-      <%= content_tag(:div, value, class: "#{key}") %>
-    <% end %>
-
-    <% if logged_in? %>
-      <%= link_to "Profile", user_path(current_user.id) %>
-      <%= link_to "Logout", session_path, method: :delete %>
     <% else %>
-      <%= link_to "Sign up", new_user_path ,:controller => 'users' %>
-      <%= link_to "Login", new_session_path %>
+    <nav class="row">
+      <div class="col-5 row">
+        <div class="col-4"><%= button_to "Sign up", new_user_path ,method: :get,:controller => 'users' , :class => "btn btn-outline-primary" %></div>
+        <div class="col-4"><%= button_to "Login"  , new_session_path ,method: :get,:class => "btn btn-outline-primary" %></div>
+      </div>
+
+      <div class="col-2">
+        <a href="/twitters/index">
+          <%= image_tag 'kuritter_icon.jpg', :size => '60x45', :class => "header_img"%>
+        </a>
+      </div>
+    </nav>
     <% end %>
-  </header>  <%= yield %>
+  </header>
+  <% flash.each do |key, value| %>
+    <%= content_tag(:div, value, class: "#{key}") %>
+  <% end %>
+
+  <%= yield %>
 </body>
 </html>
