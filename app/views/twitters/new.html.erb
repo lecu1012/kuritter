@@ -21,8 +21,8 @@
   <tr>
     <td>
     <%= kuritter.content %>
-    <% if !kuritter.image.nil? %>
-       <br><hr><%= image_tag kuritter.image_url , :width => '300' %>
+    <% if !kuritter.image.blank? %>
+      <br><hr><%= image_tag kuritter.image_url , :width => '300' %>
     <% end %>
     </td>
   </tr>
