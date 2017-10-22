@@ -10,7 +10,8 @@
 
 <div class="twitter_text">
   <%= form.text_area :content ,class: 'form_textarea' %>
-
+  <%= form.label :image %>
+  <%= form.file_field :image %>
 </div>
 <%= form.submit %>
 

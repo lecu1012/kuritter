@@ -43,7 +43,7 @@ class TwittersController < ApplicationController
 
   private
   def twitter_params
-    params.require(:twitter).permit(:content)
+    params.require(:twitter).permit(:content,:image)
   end
 
   def user_params
