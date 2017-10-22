@@ -1,9 +1,9 @@
 class UserMailer < ApplicationMailer
   def user_mail(twitter,user)
-    @twitter = twitter
-    @content = user
+    @content = twitter
+    @user = user
 
-    mail(to: @content.email, subject: "kuritterにログインしました")
+    mail(to: @user.email, subject: "kuritterに投稿しました")
     #mail(to: "lecu1012@gmail.com", subject: "kuritterにログインしました")
   end
 end
