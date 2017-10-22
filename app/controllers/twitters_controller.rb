@@ -21,6 +21,7 @@ class TwittersController < ApplicationController
     @twitter =  Twitter.new(twitter_params)
 
     if @twitter.save
+      UserMailer.user_mail(current_user.email).deliver
       redirect_to new_twitter_path
     else
       render 'new'

@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
 
     if user && user.authenticate(params[:session][:password])
       #user.emailにメールを送信
-      UserMailer.user_mail(user).deliver
+      #UserMailer.user_mail(user).deliver
       #user.idをsessionに登録
       session[:user_id] = user.id
       #toppageへ移動
