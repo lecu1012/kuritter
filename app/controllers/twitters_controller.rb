@@ -7,6 +7,8 @@ class TwittersController < ApplicationController
 
   def new
     @twitter = Twitter.new
+    @image = UserImage.find_by(email: current_user.email)
+    @favorite = current_user.favorites.find_by(user_id: current_user.id)
   end
 
   def edit
@@ -17,6 +19,7 @@ class TwittersController < ApplicationController
 
   def create
     @twitter =  Twitter.new(twitter_params)
+
     if @twitter.save
       redirect_to new_twitter_path
     else
@@ -49,5 +52,9 @@ class TwittersController < ApplicationController
 
   def set_twitter
     @twitter = Twitter.find(params[:id])
+  end
+
+  def current_twitter
+    @current_twitter ||= twitter.find_by()
   end
 end

@@ -36,7 +36,21 @@
     <aside class="col-3 side_menu_left hidden-xs hidden-sm">
       <nav>
         <div class="side_menu_left_acount">
-          <%= image_tag 'acount/plofile.jpg',:class => "profile_image" %>
+          <% if !@image.nil? %>
+          <%= image_tag @image.image_url,:class => "profile_image" %>
+          <%= link_to '画像削除', user_image_path(@image.id), method: :delete %>
+          <% else %>
+          <%= image_tag 'notimage.png',:class => "profile_image" %>
+          <%= form_with(model: @image, local: true,scope: :user_image,url:  user_images_path) do |form| %>
+          <div class="field">
+            <%= form.hidden_field :email, :value => current_user.email %>
+            <%= form.label :image %>
+            <%= form.file_field :image %>
+          </div>
+          <%= form.submit %>
+          <% end %>
+          <% end %>
+
           <h3><% if !current_user.nil? %><%= current_user.name %><% end %></h3>
         </div>
         <ul>
@@ -73,7 +87,7 @@
   <h3>ログインしてください</h3>
   <% end %>
   <% flash.each do |key, value| %>
-    <%= content_tag(:div, value, class: "#{key}") %>
+  <%= content_tag(:div, value, class: "#{key}") %>
   <% end %>
 </body>
 </html>
