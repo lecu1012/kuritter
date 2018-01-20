@@ -1,0 +1,26 @@
+<h1>お気に入り</h1>
+
+<% @twitter.reverse_each do |kuritter| %>
+<table class="content_table">
+  <tr>
+    <th rowspan="2"><%= image_tag 'acount/profile_logo.png', :size => '100x100' %></th>
+    <td class="content_top">
+      <ul>
+        <li class="acount_name"><% if !current_user.nil? %><%= current_user.name %><% end %></li>
+        <li><%= link_to '詳細', twitter_path(kuritter.twitter.id) %></li>
+        <li><%= link_to "編集", edit_twitter_path(kuritter.twitter.id) %></li>
+        <li><%= link_to '削除', twitter_path(kuritter.twitter.id), method: :delete %></li>
+        <%= link_to 'お気に入り解除する', favorite_path(kuritter.twitter.id), method: :delete, class: 'btn btn-danger' %>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td>
+    <%= kuritter.twitter.content %>
+    <% if !kuritter.twitter.image.blank? %>
+      <br><hr><%= image_tag kuritter.twitter.image_url , :width => '300' %>
+    <% end %>
+    </td>
+  </tr>
+</table>
+<% end %>

@@ -15,7 +15,7 @@
       <div class="col-5 row">
         <div class="col-3"><%= button_to "ホーム", twitters_path ,method: :get,:class => "btn btn-outline-primary" %></div>
         <div class="col-3"><%= button_to "通知",   twitters_path ,method: :get,:class => "btn btn-outline-primary" %></div>
-        <div class="col-3"><%= button_to "モーメント", twitters_path ,method: :get,:class => "btn btn-outline-primary" %></div>
+        <div class="col-3"><%= button_to "お気に入り", favorites_path ,method: :get,:class => "btn btn-outline-primary" %></div>
         <div class="col-3"><%= button_to "メッセージ", twitters_path ,method: :get,:class => "btn btn-outline-primary" %></div>
       </div>
 
@@ -46,6 +46,7 @@
     </nav>
     <% end %>
   </header>
+
   <% flash.each do |key, value| %>
     <%= content_tag(:div, value, class: "#{key}") %>
   <% end %>
